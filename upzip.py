@@ -8,7 +8,7 @@ def scan_file():
     for i in files:
         if i.endswith('.zip'):
             return i
-def upzip_it(file):
+def unzip_it(file):
     file_name = file.split('.')[0]
     targe_path = './'+ file_name
     os.makedirs(targe_path)
@@ -19,5 +19,5 @@ def delete(file):
 while True:
     zip_file = scan_file()
     if zip_file:
-        upzip_it(zip_file)
+        unzip_it(zip_file)
         delete(zip_file)

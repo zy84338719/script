@@ -1,6 +1,6 @@
 import os
 import sys
-path = str(input('请输入你所要整理的路径：'))
+path = str(input('请输入你的文件所在：'))
 print(path)
 m = str(input('请确认路径是否正确！（yes/no）'))
 if 'no' in  m or 'n' in m:
