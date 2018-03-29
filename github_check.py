@@ -8,14 +8,15 @@ web_page = 'https://www.github.com/zy84338719/script'
 
 
 last_update = None
-all_info = requests.get(api)
-dict_info = all_info.json()
-cur_update = dict_info['updated_at']
+
 
 while True:
+    all_info = requests.get(api)
+    dict_info = all_info.json()
+    cur_update = dict_info['updated_at']
     if not last_update:
         last_update =cur_update
 
     if last_update <cur_update:
         webbrowser.open(web_page)
-    time.sleep(3600)
+    time.sleep(10)
