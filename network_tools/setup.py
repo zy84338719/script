@@ -15,7 +15,7 @@ OPTIONS = {
         'CFBundleName': APP_NAME,
         'CFBundleDisplayName': APP_NAME,
         'CFBundleGetInfoString': "speed test",
-        'CFBundleIdentifier': "com.zhangyi.osx.sandwich",
+        'CFBundleIdentifier': "com.zhangyi.osx.net_speed",
         'CFBundleVersion': "0.0.1",
         'CFBundleShortVersionString': "0.0.1",
         'NSHumanReadableCopyright': u"Copyright © 2018, Murphy-Yi"
