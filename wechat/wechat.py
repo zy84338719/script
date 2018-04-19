@@ -50,8 +50,8 @@ def timerFun(sched_Timer,bot):
                 flag = 0
 
 if __name__ == '__main__':
-    bot = Bot(console_qr=2)
+    bot = Bot()
     sched_Timer = datetime.datetime(2018, 4, 20, 7, 30)
-    print('程序运行时间{}'.format(sched_Timer,bot))
+    print('程序运行时间{}'.format(sched_Timer))
     do(bot)
-    timerFun(sched_Timer)
+    timerFun(sched_Timer,bot)
