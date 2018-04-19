@@ -25,8 +25,10 @@ def make_msg(raw_info):
 
 def send(msg,bot):
 
-    大家庭 =bot.groups().search('大家庭')[0]
-    大家庭.send(msg)
+    # 大家庭 =bot.groups().search('大家庭')[0]
+    zj = bot.friends().search('张易1')[0]
+    # 大家庭.send(msg)
+    zj.send(msg)
     time.sleep(3)
 
 def do(bot):
@@ -42,16 +44,17 @@ def timerFun(sched_Timer,bot):
         now = datetime.datetime.now()
         if now == sched_Timer:
             os.system('python3 weather.py')
+            print("zzzzz")
             do(bot)
             flag = 1
         else:
-            if flag ==1:
+            if flag == 1:
                 sched_Timer = sched_Timer+datetime.timedelta(days=1)
                 flag = 0
+                print('执行一次')
 
 if __name__ == '__main__':
-    bot = Bot()
+    bot = Bot(console_qr = 2)
     sched_Timer = datetime.datetime(2018, 4, 20, 7, 30)
     print('程序运行时间{}'.format(sched_Timer))
-    do(bot)
     timerFun(sched_Timer,bot)
