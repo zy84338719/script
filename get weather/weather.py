@@ -1,6 +1,8 @@
 import requests
 import time
 import pandas as pd
+from dateutil.parser import parse
+
 
 def weather(cities):
     weather_api = 'https://www.sojson.com/open/api/weather/json.shtml?city='
@@ -8,13 +10,13 @@ def weather(cities):
     for c in cities:
         c_info = requests.get(weather_api+c).json()
         city = c_info['city']
-        date = c_info['date']
+        date = parse(c_info['date'])
         pm25 = c_info['data']['pm25']
         pm10 = c_info['data']['pm10']
         quality = c_info['data']['quality']
         C = c_info['data']['wendu']
-        C_max = c_info['data']['forecast'][0]['high']
-        C_min = c_info['data']['forecast'][0]['low']
+        C_max = c_info['data']['forecast'][0]['high'][2:]
+        C_min = c_info['data']['forecast'][0]['low'][2:]
         type = c_info['data']['forecast'][0]['type']
         advise = c_info['data']['ganmao']
         c_dic ={
@@ -30,11 +32,12 @@ def weather(cities):
                 'advise':advise
                 }
         data.append(c_dic)
-        time.sleep(3)
+        print(city,'处理完毕')
+        time.sleep(5)
     return data
 
 
 if __name__ == '__main__':
-    data = weather(['北京', '上海','镇江','天津','河北'])
+    data = weather(['北京'])
     dataframe = pd.DataFrame(data)
     dataframe.to_csv("天气数据.csv", index=False, sep=',')
