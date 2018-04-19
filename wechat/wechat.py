@@ -25,10 +25,10 @@ def make_msg(raw_info):
 
 def send(msg,bot):
 
-    # 大家庭 =bot.groups().search('大家庭')[0]
-    zj = bot.friends().search('张易1')[0]
-    # 大家庭.send(msg)
-    zj.send(msg)
+    大家庭 =bot.groups().search('大家庭')[0]
+    # zj = bot.friends().search('张易1')[0]
+    大家庭.send(msg)
+    # zj.send(msg)
     time.sleep(3)
 
 def do(bot):
@@ -55,6 +55,7 @@ def timerFun(sched_Timer,bot):
 
 if __name__ == '__main__':
     bot = Bot(console_qr = 2)
-    sched_Timer = datetime.datetime(2018, 4, 20, 7, 30)
+    now = datetime.datetime.now()
+    sched_Timer = datetime.datetime(now.year, now.month, now.day, 7, 30)
     print('程序运行时间{}'.format(sched_Timer))
     timerFun(sched_Timer,bot)
