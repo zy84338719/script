@@ -33,11 +33,11 @@ def weather(cities):
                 }
         data.append(c_dic)
         print(city,'处理完毕')
-        time.sleep(5)
+        time.sleep(6)
     return data
 
 
 if __name__ == '__main__':
-    data = weather(['北京'])
+    data = weather(['北京','镇江'])
     dataframe = pd.DataFrame(data)
     dataframe.to_csv("天气数据.csv", index=False, sep=',')
